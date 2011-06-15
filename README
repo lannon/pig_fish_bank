@@ -1,0 +1,17 @@
+== Pig Fish Bank
+
+Basic ATM application build on Rails with few dependencies and a number of
+simplifying assumptions:
+
+* Customers are authenticated by name and 4 digit numeric PIN
+* Customer name must be unique
+* This ATM is the lone ATM operated by Pig Fish Bank
+* All customer Accounts are with Pig Fish Bank
+* Customers can make deposits, withdrawal funds, transfer balances 
+  and inquire about balances
+* Customers are locked out of system after any three unsuccessful login 
+  attempts
+* Accounts cannot be overdrawn
+* Existence of an admin tool that allows for PIN management, reporting, etc.
+* Since there is only one ATM, we won't have to worry about DB locking or
+  race conditions
