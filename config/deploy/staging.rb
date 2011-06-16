@@ -19,7 +19,7 @@ set :deploy_to,  "/web/sites/#{application}"
 default_run_options[:pty] = true
 ssh_options[:forward_agent] = true
 ssh_options[:keys] = ["ec2.pem"]
-set :use_sudo, true
+set :use_sudo, false
 
 set :rails_env, "staging"
 
