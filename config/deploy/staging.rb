@@ -1,3 +1,9 @@
+$:.unshift(File.expand_path("~/.rvm/lib"))
+require 'rvm/capistrano'
+set :rvm_ruby_string, '1.9.2'
+set :rvm_type, :user
+# rvm bin path conflicts with rvm capistrano plugin
+set :rvm_bin_path, File.expand_path("/home/ec2-user/bin") 
 #############################################################
 #	Application
 #############################################################
@@ -35,14 +41,11 @@ role :db,  "50.19.233.96", :primary => true # This is where Rails migrations wil
 set :scm, :git
 set :scm_verbose, true
 set :deploy_via, :remote_cache
+set :repository, "git@github.com:lannon/pig_fish_bank.git"
 
 
 namespace :deploy do
   
-  task :fix_permissions, :roles => :app do
-    sudo "chgrp nobody #{release_path}/public/stylesheets"
-    sudo "chgrp nobody #{release_path}/tmp/cache"
-  end
   
   task :start do ; end
   task :stop do ; end
@@ -51,4 +54,3 @@ namespace :deploy do
   end
 end
 
-before 'deploy:symlink', 'deploy:fix_permissions'
