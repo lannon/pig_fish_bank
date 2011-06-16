@@ -22,7 +22,7 @@ class CustomerTest < ActiveSupport::TestCase
     end
     
     should "return nil if authentication fails" do
-      assert nil == Customer.authenticate('BadCompany','TilTheDayIDie')
+      assert_nil Customer.authenticate('BadCompany','TilTheDayIDie')
     end
     
     should "return customer if authenication succeeds and account is not locked" do
@@ -36,7 +36,7 @@ class CustomerTest < ActiveSupport::TestCase
     
     should "not be able to authenticate even with correct pin after 3 unsuccessful login attempts" do
       3.times { Customer.authenticate(@customer_attributes[:name], "#{@customer_attributes[:pin]}BAD")}
-      assert nil == Customer.authenticate(@customer_attributes[:name], @customer_attributes[:pin])
+      assert Customer.authenticate(@customer_attributes[:name], @customer_attributes[:pin]).locked?
     end
     
   end

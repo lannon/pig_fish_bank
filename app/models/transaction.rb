@@ -5,11 +5,16 @@ class Transaction < ActiveRecord::Base
   
   validates :type, :presence => true, 
     :inclusion => { :in => ['Withdrawal','Deposit','Transfer','BalanceInquiry'] }
-  validates :amount, :numericality => true, :presence => true
-
+  
   
   def process
-    # implement in subclass
+    begin
+      transaction { yield } 
+    rescue => e
+      raise e
+    else  
+      update_attribute(:success, true)
+    end
   end
   
 end

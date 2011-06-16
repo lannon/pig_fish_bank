@@ -10,3 +10,8 @@ group :test do
   gem 'factory_girl_rails'
   gem 'autotest'
 end
+
+group :development do
+  gem 'capistrano' 
+  gem 'capistrano-ext'
+end

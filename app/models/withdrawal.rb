@@ -1,11 +1,14 @@
 class Withdrawal < Transaction
   
   validates :source_account_id, :numericality => true, :presence => true
-  validates_associated :source_account
+  validates :amount, :numericality => true, :presence => true
   
   def process
-    # take funds from source account 
-    # if source account and system have sufficient funds are available
+    super do
+      source_account.debit(amount)
+      Account.system.debit(amount) unless Account.system == source_account
+    end
+    true
   end
   
 end

@@ -17,7 +17,7 @@ class Customer < ActiveRecord::Base
   def self.authenticate(name, pin)
     if customer = self.find_by_name(name)
       if BCrypt::Password.new(customer.pin_digest) == pin
-        customer unless customer.locked?
+        customer
       else
         customer.failed_attempt!
         nil

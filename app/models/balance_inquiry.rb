@@ -1,11 +1,10 @@
 class BalanceInquiry < Transaction
   
-  validates :target_account_id, :numericality => true, :presence => true
-  validates_associated :target_account
+  validates :source_account_id, :numericality => true, :presence => true
   
   def process
-    # show fund availabe in target account
-    target_account
+    super
+    source_account.balance
   end
   
 end

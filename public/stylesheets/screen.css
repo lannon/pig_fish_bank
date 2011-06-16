@@ -1,0 +1,15 @@
+*{margin:0;padding:0;}
+a img{border:none;}
+/* typography */
+body{font-family:'Helvetica Neue',Helvetica,sans-serif;font-size:16px;line-height:24px;color:#222;}
+a{color:#666;text-decoration:none;}
+a:hover{text-decoration:underline;}
+h1 {font-size: 28px; line-height: 42px}
+/* layout */
+body{margin:20px 0px;padding:0px;text-align:center;}
+div.container{margin:0px auto;text-align:left;}
+div#nav{text-align:center; margin: 0 0 20px 0}
+#footer{margin:20px 0 0 0;padding:9px;border-top:1px solid #ccc}
+#footer img.logo{margin:0 3px}
+#footer span.identity{font-size:20px}
+.pigFishish{font-family:WindsorEF-LightCondensed;}

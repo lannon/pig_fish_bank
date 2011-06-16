@@ -3,16 +3,20 @@ require 'test_helper'
 class TransactionTest < ActiveSupport::TestCase
 
   context "validations" do 
-
     should validate_presence_of(:type)
-    should validate_presence_of(:amount)
-    should validate_numericality_of(:amount)
   end
   
-  context "associations" do
+  
+  context "a transaction" do
+    setup do
+      # Deposit < Transaction
+      # Transaction is an abstract class
+      @transaction = Factory(:deposit) 
+    end
     
-    should belong_to(:target_account)
-    should belong_to(:source_account)
+    should "respond to process" do
+      assert @transaction.respond_to?(:process)
+    end
     
   end
     

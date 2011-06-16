@@ -1,14 +1,18 @@
 class Transfer < Transaction
   
   validates :target_account_id, :numericality => true, :presence => true
-  validates_associated :target_account
   validates :source_account_id, :numericality => true, :presence => true
-  validates_associated :source_account
+  validates :amount, :numericality => true, :presence => true
   
   def process
-    # take money from source account if sufficient funds are available
-    # move to target account
-    # does not involve ATM cash balance
+    # debit source account
+    # credit target account
+    # don't worry about balances. account validations should raise errors
+    super do
+      source_account.debit(amount)
+      target_account.credit(amount) 
+    end
+    true
   end
   
 end
