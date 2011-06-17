@@ -5,6 +5,9 @@ class WithdrawalsController < ApplicationController
   
   def create
     @withdrawal = Withdrawal.create(params[:withdrawal])
+    if @withdrawal.process
+      
+    end
   end
 
 end

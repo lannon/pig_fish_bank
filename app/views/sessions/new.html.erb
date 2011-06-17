@@ -1,16 +1,18 @@
 
-<h1 class="pigFishish">Sign In</h1>
-
-<%= form_tag sessions_path do %>
+<div id="login"><h1><%= image_tag "119-piggy-bank.png", :class => 'logo' %><span class="pigFishish">Pig Fish Bank</span></h1>
+<%= content_tag :div, :id => "login_error" do %>
+  <%= flash[:alert] %>
+<% end if flash[:alert] %>
+<%= form_tag(sessions_path, :id => 'loginform') do %>
   <p>
     <%= label_tag :name, "Name" %><br />
-    <%= text_field_tag :name, params[:name] %>
+    <%= text_field_tag :name, params[:name], :class => 'input' %>
   </p>
   <p>
     <%= label_tag :pin, "PIN" %><br />
-    <%= password_field_tag :pin %>
+    <%= password_field_tag :pin, nil ,:class => 'input' %>
   </p>
-  <p>
+  <p class="submit">
     <%= submit_tag "Sign In", :class => 'button pill big'%>
   </p>
 <% end %>
