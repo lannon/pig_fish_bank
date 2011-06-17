@@ -3,7 +3,9 @@ class BalanceInquiry < Transaction
   validates :source_account_id, :numericality => true, :presence => true
   
   def process
-    super
+    super do 
+      # nothing
+    end
     source_account.balance
   end
   

@@ -1,0 +1,15 @@
+<%= form_for(@withdrawal) do |f| %>
+  <p>
+    <%= f.label :source_account_id, "Select Account" %>  
+    <%= account_select(f, current_customer, :source_account_id) %>
+  </p>
+  <p>
+    <%= f.label :amount, "Amount" %>
+    <%= f.text_field :amount %>
+  </p>
+  <p>
+    Display on Screen <%= radio_button_tag 'output', 'screen', true %>
+    Print Receipt <%= radio_button_tag 'output', 'print' %>
+  </p>
+  <p><%= f.submit "Withdraw Funds", :class => 'button pill big'%></p>
+<% end %>

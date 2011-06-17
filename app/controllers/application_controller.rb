@@ -19,5 +19,9 @@ class ApplicationController < ActionController::Base
     def authenticate_customer!
       customer_signed_in? or redirect_to login_path, :notice => 'You must be signed in'
     end
+    
+    def customer_account?(account)
+      current_customer.accounts.include?(account)
+    end
 
 end

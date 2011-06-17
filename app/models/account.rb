@@ -22,4 +22,8 @@ class Account < ActiveRecord::Base
     update_attributes!(:balance => balance - amount)
   end
   
+  def display
+    "#{account_type.titleize}: #{id}"
+  end
+  
 end

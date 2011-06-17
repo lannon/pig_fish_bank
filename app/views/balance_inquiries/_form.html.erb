@@ -1,0 +1,11 @@
+<%= form_for(@balance_inquiry) do |f| %>
+  <p>
+    <%= f.label :source_account_id, "Select Account" %>
+    <%= account_select(f, current_customer, :source_account_id) %>
+  </p>
+  <p>
+    Display on Screen <%= radio_button_tag 'output', 'screen', true %>
+    Print Receipt <%= radio_button_tag 'output', 'print' %>
+  </p>
+  <p><%= f.submit "Check Balance", :class => 'button pill big'%></p>
+<% end %>
