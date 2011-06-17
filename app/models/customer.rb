@@ -12,7 +12,6 @@ class Customer < ActiveRecord::Base
     :length => {:is => 4}, :on => :create
   validates :name, :presence => true, :uniqueness => true, 
     :length => { :within => 3..100 }
-  validates_associated :accounts
   
   def self.authenticate(name, pin)
     if customer = self.find_by_name(name)

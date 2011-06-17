@@ -23,4 +23,16 @@ class AccountTest < ActiveSupport::TestCase
     
     
   end
+  
+  context "a system account" do
+    setup do
+      @account = Account.system
+    end
+    
+    should "be globally unique. cannot create more than one" do
+      @new_system_account =  Account.create(:account_type => 'system')
+      assert !@new_system_account.save
+    end
+    
+  end
 end
