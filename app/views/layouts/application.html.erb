@@ -11,11 +11,10 @@
   <div class="container row">
     <div class="column grid_12">
       <%= render :partial => "shared/nav" if customer_signed_in? -%>
-    <% flash.each do |name, msg| %>
-      <%= content_tag :div, msg, :class => 'flash', :id => name %>
-    <% end %>
-      <%= yield %>
-      <%= render :partial => "shared/footer"  -%>
+      <div class="content">
+        <%= yield %>
+      </div>
+     
     </div>
   </div>
 </body>

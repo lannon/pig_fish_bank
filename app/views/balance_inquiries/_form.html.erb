@@ -1,11 +1,12 @@
 <%= form_for(@balance_inquiry) do |f| %>
+  <h2 class="pigFishish">Balance Inquiry</h2>
+  <% flash.each do |name, msg| %>
+    <%= content_tag :div, msg, :class => 'flash', :id => name %>
+  <% end %>
   <p>
-    <%= f.label :source_account_id, "Select Account" %>
+    <%= f.label :source_account_id, "Select Account" %><br />
     <%= account_select(f, current_customer, :source_account_id) %>
   </p>
-  <p>
-    Display on Screen <%= radio_button_tag 'output', 'screen', true %>
-    Print Receipt <%= radio_button_tag 'output', 'print' %>
-  </p>
+  <%= print_or_display%>
   <p><%= f.submit "Check Balance", :class => 'button pill big'%></p>
 <% end %>

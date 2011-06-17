@@ -1,4 +1,5 @@
 class BalanceInquiriesController < ApplicationController
+  before_filter :ensure_params, :only => :create
   
   def new
     @balance_inquiry = BalanceInquiry.new
@@ -18,4 +19,11 @@ class BalanceInquiriesController < ApplicationController
     end
   end
   
+    private
+    
+      def ensure_params
+        if params[:balance_inquiry][:source_account_id].blank?
+          redirect_to :back, :notice => "Please select an account" 
+        end
+      end
 end

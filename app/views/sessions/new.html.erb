@@ -1,5 +1,5 @@
 
-<div id="login"><h1><%= image_tag "119-piggy-bank.png", :class => 'logo' %><span class="pigFishish">Pig Fish Bank</span></h1>
+<div id="login">
 <%= content_tag :div, :id => "login_error" do %>
   <%= flash[:alert] %>
 <% end if flash[:alert] %>
@@ -16,3 +16,4 @@
     <%= submit_tag "Sign In", :class => 'button pill big'%>
   </p>
 <% end %>
+<h1 class="identity"><%= image_tag "119-piggy-bank.png", :class => 'logo' %><span class="pigFishish">Pig Fish Bank</span>

@@ -1,15 +1,13 @@
 <%= form_for(@deposit) do |f| %>
+  <h2 class="pigFishish">Deposit Funds</h2>
   <p>
-    <%= f.label :target_account_id, "Select Account" %>  
+    <%= f.label :target_account_id, "Select Account" %><br />
     <%= account_select(f, current_customer, :target_account_id) %>
   </p>
   <p>
-    <%= f.label :amount, "Amount" %>
-    <%= f.text_field :amount %>
+    <%= f.label :amount, "Amount" %><br />
+    <%= f.text_field :amount, :class => 'amount' %>
   </p>
-  <p>
-    Display on Screen <%= radio_button_tag 'output', 'screen', true %>
-    Print Receipt <%= radio_button_tag 'output', 'print' %>
-  </p>
+  <%= print_or_display%>
   <p><%= f.submit "Deposit Funds", :class => 'button pill big'%></p>
 <% end %>

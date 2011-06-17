@@ -5,6 +5,6 @@
         <li><%= link_to "Withdraw Funds", new_withdrawal_path, :class => 'button pill icon arrowdown big' %></li>
         <li><%= link_to "Transfer Funds", new_transfer_path, :class => 'button pill icon loop big' %></li>
         <li><%= link_to "Balance Inquiry", new_balance_inquiry_path, :class => 'button pill icon log big' %></li>
-        <li><%= link_to "End Session", logout_path, :class => 'button pill big' %></li>
+        <li><%= link_to "End Session", logout_path, :class => 'button pill big', :confirm => "Are you sure you don't want to give us the monies?" %></li>
     </ul>
   </div>

@@ -1,19 +1,17 @@
 <%= form_for(@transfer) do |f| %>
+  <h2 class="pigFishish">Transfer Funds</h2>
   <p>
-    <%= f.label :source_account_id, "From Account" %>  
+    <%= f.label :source_account_id, "From Account" %><br />
     <%= account_select(f, current_customer, :source_account_id) %>
   </p>
   <p>
-    <%= f.label :target_account_id, "To Account" %>  
+    <%= f.label :target_account_id, "To Account" %><br />
     <%= account_select(f, current_customer, :target_account_id) %>
   </p>
   <p>
-    <%= f.label :amount, "Amount" %>
-    <%= f.text_field :amount %>
+    <%= f.label :amount, "Amount" %><br />
+    <%= f.text_field :amount, :class => 'amount' %>
   </p>
-  <p>
-    Display on Screen <%= radio_button_tag 'output', 'screen', true %>
-    Print Receipt <%= radio_button_tag 'output', 'print' %>
-  </p>
+  <%= print_or_display%>
   <p><%= f.submit "Transfer Funds", :class => 'button pill big'%></p>
 <% end %>
