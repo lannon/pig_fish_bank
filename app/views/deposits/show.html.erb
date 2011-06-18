@@ -1,0 +1,7 @@
+<div class="dashboard receipt">
+  <h2 class="pigFishish">Deposit Receipt</h2>
+  <label>Amount</label><br /> 
+  <%= number_to_currency(@deposit.amount) %><br />
+  <label><%= @deposit.target_account.display %> Balance</label><br /> 
+  <%= number_to_currency(@deposit.target_account.balance) %>
+</div>

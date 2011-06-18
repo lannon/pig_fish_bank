@@ -6,11 +6,17 @@ module ApplicationHelper
   
   def print_or_display
     content_tag :p, :class => 'print_or_display' do
-      label_tag("Display On Screen: ") +
-      radio_button_tag('output', 'screen', true) + "<br />".html_safe +
-      label_tag("Print Receipt: ") +
-      radio_button_tag('output', 'print')
+      radio_button_tag('output', 'screen', true)  +
+      label_tag(" Display on Screen").titleize + "<br />".html_safe +
+      radio_button_tag('output', 'print') +
+      label_tag(" Print Receipt").titleize
     end
+  end
+  
+  def flash_messages
+    flash.collect do |name, msg|
+      content_tag :div, msg, :class => 'flash', :id => name
+    end.join.html_safe
   end
   
   

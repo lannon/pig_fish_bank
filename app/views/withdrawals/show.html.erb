@@ -1,0 +1,7 @@
+<div class="dashboard receipt">
+  <h2 class="pigFishish">Withdrawal Receipt</h2>
+  <label>Amount</label><br /> 
+  <%= number_to_currency(@withdrawal.amount) %><br />
+  <label><%= @withdrawal.source_account.display %> Balance</label><br /> 
+  <%= number_to_currency(@withdrawal.source_account.balance) %>
+</div>

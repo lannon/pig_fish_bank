@@ -1,5 +1,6 @@
 <%= form_for(@withdrawal) do |f| %>
   <h2 class="pigFishish">Withdraw Funds</h2>
+  <%= flash_messages %>
   <p>
     <%= f.label :source_account_id, "Select Account" %><br />
     <%= account_select(f, current_customer, :source_account_id) %>

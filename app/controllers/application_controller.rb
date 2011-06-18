@@ -23,5 +23,7 @@ class ApplicationController < ActionController::Base
     def customer_account?(account)
       current_customer.accounts.include?(account)
     end
+    
+    
 
 end

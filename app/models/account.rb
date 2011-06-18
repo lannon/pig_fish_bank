@@ -21,7 +21,7 @@ class Account < ActiveRecord::Base
   end
   
   def display
-    "#{account_type.titleize}: #{id}"
+    "#{account_type.titleize}: ##{id}"
   end
   
 end

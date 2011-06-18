@@ -1,5 +1,6 @@
 <%= form_for(@deposit) do |f| %>
   <h2 class="pigFishish">Deposit Funds</h2>
+  <%= flash_messages %>
   <p>
     <%= f.label :target_account_id, "Select Account" %><br />
     <%= account_select(f, current_customer, :target_account_id) %>

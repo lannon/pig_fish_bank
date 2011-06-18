@@ -1,6 +1,6 @@
 <div class="dashboard">
   <h2 class="pigFishish">Dashboard</h2>
-  <p>Welcome, <%= current_customer.name %></p>
-  <p>Now, give us the monies!</p>
+  <%= flash_messages %>
+  <p>Give us the monies, <%= current_customer.name %></p>
 </div>
 <h1 class="identity"><%= image_tag "119-piggy-bank.png", :class => 'logo' %><span class="pigFishish">Pig Fish Bank</span>

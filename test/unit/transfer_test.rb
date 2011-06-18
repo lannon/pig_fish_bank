@@ -54,6 +54,20 @@ class TransferTest < ActiveSupport::TestCase
         assert @transfer.success?
       end
     end
+  end
+  
+  context "a transfer with identical target and source accounts" do
+    setup do
+      @amount = 100
+      @source_account = @target_account = Factory(:account)
+      @target_account = Factory(:account)
+      @transfer = Factory(:transfer, 
+        :target_account => @target_account,
+        :source_account => @source_account, 
+        :amount => @amount)
+    end
     
+    should "fail miserably" do
+    end
   end
 end

@@ -1,0 +1,9 @@
+<div class="dashboard receipt">
+  <h2 class="pigFishish">Transfer Receipt</h2>
+  <label>Amount</label><br /> 
+  <%= number_to_currency(@transfer.amount) %><br />
+  <label>From <%= @transfer.source_account.display %> Balance</label><br /> 
+  <%= number_to_currency(@transfer.source_account.balance) %>
+  <label>To <%= @transfer.target_account.display %> Balance</label><br /> 
+  <%= number_to_currency(@transfer.target_account.balance) %>
+</div>
